@@ -1,0 +1,10 @@
+2025-11-14 08:06:09.441 [SpringApplicationShutdownHook] INFO  [sessionId=NO_SESSION]
+            [reqId=] [traceId=] [spanId=] [parentSpan=]
+            [uri=] [method=] [status=]
+            [duration=ms] [clientIp=] [userAgent=]
+            o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-14 08:06:09.518 [tomcat-shutdown] INFO  [sessionId=NO_SESSION]
+            [reqId=] [traceId=] [spanId=] [parentSpan=]
+            [uri=] [method=] [status=]
+            [duration=ms] [clientIp=] [userAgent=]
+            o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
