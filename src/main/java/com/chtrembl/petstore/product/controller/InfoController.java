@@ -6,8 +6,9 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +19,15 @@ import java.util.Map;
 @RestController
 @RequestMapping("/petstoreproductservice/v2")
 @Slf4j
-@RequiredArgsConstructor
 @Tag(name = "Info", description = "Pet Store Product Service Information API")
 public class InfoController {
 
-    private final ContainerEnvironment containerEnvironment;
-    private final ProductService productService;
+    @Autowired
+    private ContainerEnvironment containerEnvironment;
+
+    @Autowired
+    @Qualifier("PostgresProductService")
+    private ProductService productService;
 
     @Operation(
             summary = "Health check",

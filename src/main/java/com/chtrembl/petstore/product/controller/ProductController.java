@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +26,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/petstoreproductservice/v2")
 @Slf4j
-@RequiredArgsConstructor
 @Tag(name = "Product", description = "Pet Store Product API")
 public class ProductController {
 
-    private final ProductService productService;
+    @Autowired
+    @Qualifier("PostgresProductService")
+    private ProductService productService;
 
     @Operation(
             summary = "Find products by status",
